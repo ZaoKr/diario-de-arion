@@ -71,11 +71,6 @@ const entryTextEl = document.getElementById("entryText");
 const btnPrev = document.getElementById("btnPrev");
 const btnNext = document.getElementById("btnNext");
 const daySelect = document.getElementById("daySelect");
-const btnMap = document.getElementById("btnMap");
-const mapModal = document.getElementById("mapModal");
-const mapBackdrop = document.getElementById("mapBackdrop");
-const btnCloseMap = document.getElementById("btnCloseMap");
-const mapTbody = document.getElementById("mapTbody");
 
 let currentDay = 1;
 let audioCtx = null;
@@ -158,46 +153,6 @@ function goTo(day) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function renderMap() {
-  const frag = document.createDocumentFragment();
-  for (let d = 1; d <= TOTAL_DAYS; d++) {
-    const entry = entryMap.get(d);
-    const tr = document.createElement("tr");
-    const tdDay = document.createElement("td");
-    tdDay.textContent = `Día ${d}`;
-    const tdStatus = document.createElement("td");
-    if (entry) {
-      tdStatus.innerHTML = '<span class="status-filled">Transcrito</span>';
-    } else {
-      tdStatus.innerHTML = '<span class="status-empty">Vacío</span>';
-    }
-    const tdRec = document.createElement("td");
-    tdRec.className = "record-text";
-    if (entry) {
-      tdRec.textContent = entry.title;
-    } else {
-      tdRec.innerHTML = '<span class="corrupt">[██████]</span>';
-    }
-    tr.appendChild(tdDay);
-    tr.appendChild(tdStatus);
-    tr.appendChild(tdRec);
-    frag.appendChild(tr);
-  }
-  mapTbody.innerHTML = "";
-  mapTbody.appendChild(frag);
-}
-
-function openMap() {
-  renderMap();
-  mapBackdrop.hidden = false;
-  mapModal.hidden = false;
-}
-
-function closeMap() {
-  mapModal.hidden = true;
-  mapBackdrop.hidden = true;
-}
-
 populateSelect();
 renderCurrent();
 
@@ -207,16 +162,8 @@ daySelect.addEventListener("change", (ev) => {
   const val = Number(ev.target.value);
   goTo(val);
 });
-btnMap.addEventListener("click", openMap);
-btnCloseMap.addEventListener("click", closeMap);
-mapBackdrop.addEventListener("click", closeMap);
 
 window.addEventListener("keydown", (ev) => {
-  if (ev.key === "Escape") {
-    if (!mapModal.hidden) {
-      closeMap();
-    }
-  }
   if (ev.key === "ArrowLeft") {
     goTo(currentDay - 1);
   }
