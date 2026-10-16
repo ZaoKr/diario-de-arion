@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>diario de arion-preliminar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..700&family=IM+Fell+English:ital@0;1&family=Jost:wght@300..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="bg-veil"></div>
+  <div class="org-corners" aria-hidden="true">
+    <span class="corner c-tl"></span>
+    <span class="corner c-tr"></span>
+    <span class="corner c-bl"></span>
+    <span class="corner c-br"></span>
+  </div>
+
+  <header class="site-header">
+    <div class="title-wrap">
+      <h1 class="site-title">diario de arion-preliminar</h1>
+      <p class="site-subtitle">Registros de Arion · 101 Días</p>
+    </div>
+  </header>
+
+  <main class="diary-shell">
+    <section class="diary-panel" aria-live="polite">
+      <div class="panel-header">
+        <div class="day-info">
+          <span class="day-label">Día</span>
+          <span class="day-number" id="dayNumber">1</span>
+          <span class="entry-title" id="entryTitle">Entrada 1 — El 'Nacimiento'</span>
+        </div>
+        <div class="panel-accent" aria-hidden="true"></div>
+      </div>
+
+      <article class="entry-body">
+        <p id="entryText" class="entry-text"></p>
+      </article>
+
+      <nav class="nav-bar" aria-label="Navegación del diario">
+        <button class="nav-btn" id="btnPrev" type="button" aria-label="Entrada anterior">
+          <span class="btn-glyph">‹</span>
+          <span class="btn-label">Anterior</span>
+        </button>
+
+        <div class="day-selector-wrap">
+          <label class="selector-label" for="daySelect">Ir al Día</label>
+          <select id="daySelect" class="day-select" aria-label="Seleccionar día del diario"></select>
+        </div>
+
+        <button class="nav-btn" id="btnNext" type="button" aria-label="Entrada siguiente">
+          <span class="btn-label">Siguiente</span>
+          <span class="btn-glyph">›</span>
+        </button>
+      </nav>
+    </section>
+  </main>
+
+  <button class="map-fab" id="btnMap" type="button" aria-haspopup="dialog" aria-controls="mapModal">
+    Mapa de los 101 Días
+  </button>
+
+  <div class="modal-backdrop" id="mapBackdrop" hidden></div>
+  <div class="map-modal" id="mapModal" aria-labelledby="mapTitle" hidden>
+    <header class="modal-header">
+      <h2 class="modal-title" id="mapTitle">Mapa cronológico de los 101 Días</h2>
+      <button class="modal-close" id="btnCloseMap" type="button" aria-label="Cerrar mapa">×</button>
+    </header>
+    <div class="modal-body">
+      <div class="table-wrap">
+        <table class="map-table">
+          <thead>
+            <tr>
+              <th scope="col">Día</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Registro</th>
+            </tr>
+          </thead>
+          <tbody id="mapTbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <small><span class="red-corrupt">[REGISTRO ELIMINADO]</span> · Archivo Restringido</small>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+
+</html>
