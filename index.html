@@ -4,7 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>diario de arion-preliminar</title>
+  <title>Diario de Arion — Archivo Restringido</title>
+  <meta name="description" content="Diario de Arion: 101 días de registros sellados, fragmentos corruptos y una memoria que se deshace en el abismo.">
+  <meta name="theme-color" content="#0b090f">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="Diario de Arion">
+  <meta property="og:description" content="101 días de registros sellados, fragmentos corruptos y una memoria que se deshace en el abismo.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b090f'/%3E%3Ccircle cx='32' cy='32' r='25' fill='none' stroke='%23d9b54c' stroke-width='2.5'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%238c6f1f'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='bold' fill='%23f5d98c' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..700&family=IM+Fell+English:ital@0;1&family=Jost:wght@300..600&display=swap" rel="stylesheet">
@@ -22,48 +30,87 @@
 
   <header class="site-header">
     <div class="title-wrap">
-      <h1 class="site-title">diario de arion-preliminar</h1>
+      <h1 class="site-title">Diario de Arion</h1>
       <p class="site-subtitle">Registros de Arion · 101 Días</p>
     </div>
   </header>
 
   <main class="diary-shell">
-    <section class="diary-panel" aria-live="polite">
+    <section class="diary-panel">
       <div class="panel-header">
         <div class="day-info">
           <span class="day-label">Día</span>
           <span class="day-number" id="dayNumber">1</span>
+          <span class="day-total" id="dayTotal">/ 101</span>
           <span class="entry-title" id="entryTitle">Entrada 1 — El 'Nacimiento'</span>
         </div>
         <div class="panel-accent" aria-hidden="true"></div>
       </div>
 
-      <article class="entry-body">
+      <div class="ornament" aria-hidden="true">
+        <span class="ornament-line"></span>
+        <span class="ornament-glyph">❦</span>
+        <span class="ornament-line"></span>
+      </div>
+
+      <article class="entry-body" id="entryBody" aria-live="polite">
         <p id="entryText" class="entry-text"></p>
       </article>
 
-      <nav class="nav-bar" aria-label="Navegación del diario">
-        <button class="nav-btn" id="btnPrev" type="button" aria-label="Entrada anterior">
-          <span class="btn-glyph">‹</span>
-          <span class="btn-label">Anterior</span>
-        </button>
+      <div class="progress" id="progress" aria-hidden="true">
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+          <div class="progress-marks" id="progressMarks"></div>
+        </div>
+      </div>
 
-        <div class="day-selector-wrap">
-          <label class="selector-label" for="daySelect">Ir al Día</label>
-          <select id="daySelect" class="day-select" aria-label="Seleccionar día del diario"></select>
+      <nav class="nav-bar" aria-label="Navegación del diario">
+        <div class="nav-side">
+          <button class="nav-jump" id="btnJumpPrev" type="button" aria-label="Entrada anterior con registro"
+            title="Entrada anterior con registro" disabled>«</button>
+          <button class="nav-btn" id="btnPrev" type="button" aria-label="Día anterior">
+            <span class="btn-glyph">‹</span>
+            <span class="btn-label">Anterior</span>
+          </button>
         </div>
 
-        <button class="nav-btn" id="btnNext" type="button" aria-label="Entrada siguiente">
-          <span class="btn-label">Siguiente</span>
-          <span class="btn-glyph">›</span>
-        </button>
+        <div class="day-selector-wrap" id="daySelectorWrap">
+          <span class="selector-label" id="selectorLabel">Ir al Día</span>
+          <button class="day-select" id="daySelectBtn" type="button" aria-haspopup="listbox" aria-expanded="false"
+            aria-labelledby="selectorLabel">
+            <span class="day-select-value" id="daySelectValue">Día 1</span>
+            <span class="day-select-chevron" aria-hidden="true"></span>
+          </button>
+          <ul class="day-menu" id="dayMenu" role="listbox" tabindex="-1" aria-labelledby="selectorLabel" hidden></ul>
+        </div>
+
+        <div class="nav-side">
+          <button class="nav-btn" id="btnNext" type="button" aria-label="Día siguiente">
+            <span class="btn-label">Siguiente</span>
+            <span class="btn-glyph">›</span>
+          </button>
+          <button class="nav-jump" id="btnJumpNext" type="button" aria-label="Entrada siguiente con registro"
+            title="Entrada siguiente con registro" disabled>»</button>
+        </div>
       </nav>
+
+      <p class="secret-line" id="secretLine" role="status" hidden></p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <small><span class="red-corrupt">[REGISTRO ELIMINADO]</span> · Archivo Restringido</small>
+    <small><button class="red-corrupt footer-secret" id="btnFooterSecret" type="button" data-text="[REGISTRO ELIMINADO]">[REGISTRO ELIMINADO]</button> · Archivo Restringido</small>
+    <button class="sound-toggle" id="btnSound" type="button" aria-pressed="true">♪ Sonido: activado</button>
   </footer>
+
+  <audio id="ambient" src="audio/mensaje.mp3" preload="auto" loop></audio>
+  <div class="transmission" id="transmission" role="dialog" aria-modal="true" aria-label="Transmisión entrante" hidden>
+    <div class="transmission-box">
+      <p class="transmission-tag">◈ Transmisión · Canal desconocido</p>
+      <p class="transmission-line" id="transmissionLine" aria-live="polite"></p>
+    </div>
+  </div>
+  <div class="corrupt-flash" id="corruptFlash" aria-hidden="true"></div>
 
   <script src="script.js" defer></script>
 </body>
