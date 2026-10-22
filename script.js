@@ -15,48 +15,53 @@ const ENTRIES = [
     text: "Se habla de una misión especial en [LUGAR_RESTRINGIDO] que involucra a Z**o. Yo sigo sin saber qué relación tengo con ese nombre."
   },
   {
+    day: 6,
+    title: "Entrada 4 — Los Que Quedamos",
+    text: "[████████] y los demás partieron hoy hacia [LUGAR_RESTRINGIDO]. Los pasillos se sienten aún más vacíos y silenciosos. Solo quedamos unos pocos vagando sin rumbo por este lugar."
+  },
+  {
     day: 7,
-    title: "Entrada 4 — El Rostro y el Arma",
+    title: "Entrada 5 — El Rostro y el Arma",
     text: "Hoy fui de misión con [REGISTRO ELIMINADO]. Por primera vez vi su cara bajo la capucha y la vi usar [REGISTRO ELIMINADO], igual que yo... Su nombre es Aurea. Después nos reunimos en [REGISTRO ELIMINADO] con Lea."
   },
   {
     day: 8,
-    title: "Entrada 5 — Colapso",
+    title: "Entrada 6 — Colapso",
     text: "Siento una pesadez extraña en todo el cuerpo. Es como si mi cabeza intentara procesar algo que no me pertenece. Siento que me voy a dormir... un sueño demasiado profundo."
   },
   {
     day: 14,
-    title: "Entrada 6 — El Abismo",
+    title: "Entrada 7 — El Abismo",
     text: "Llevo días atrapado en la oscuridad. En mi mente vi un abismo sin fondo y a un chico de mi edad disolviéndose en la nada... Era Zao. ¿Por qué puedo ver sus recuerdos?"
   },
   {
     day: 15,
-    title: "Entrada 7 — Despertar en Silencio",
+    title: "Entrada 8 — Despertar en Silencio",
     text: "Al fin he despertado. Me dijeron que estuve durmiendo muchos días. Lea ha vuelto de [REGISTRO ELIMINADO], pero se le ve distinto. Dicen que casi toda la expedición fue [ELIMINADA]. Siento un vacío raro."
   },
   {
     day: 21,
-    title: "Entrada 8 — Sin Poder",
+    title: "Entrada 9 — Sin Poder",
     text: "Encontramos a Aurea en [REGISTRO ELIMINADO]. Parecía perdida y por alguna razón ya no puede invocar [REGISTRO ELIMINADO]. Nos sentamos en [REGISTRO ELIMINADO], pero el ambiente se siente pesado."
   },
   {
     day: 27,
-    title: "Entrada 9 — El Restecimiento",
+    title: "Entrada 10 — El Restecimiento",
     text: "Hoy Aurea logró recuperar [REGISTRO ELIMINADO] durante la misión. Volvemos a encontrarnos al atardecer, pero hay miradas en [REGISTRO ELIMINADO] que no me gustan..."
   },
   {
     day: 42,
-    title: "Entrada 10 — El Encapuchado",
+    title: "Entrada 11 — El Encapuchado",
     text: "Aurea tuvo un enfrentamiento contra un desconocido encapuchado ([████u]). Él la venció, pero se detuvo de golpe cuando le vio la cara bajo la capucha."
   },
   {
     day: 48,
-    title: "Entrada 11 — Silencio",
+    title: "Entrada 12 — Silencio",
     text: "Aurea se desplomó tras luchar contra [REGISTRO ELIMINADO]. Ahora es ella la que no despierta. Ha quedado sumida en un sueño profundo..."
   },
   {
     day: 50,
-    title: "Entrada 12 — El Eco",
+    title: "Entrada 13 — El Eco",
     text: "Aurea ha despertado. Me dio un fragmento cristalino que encontró y, al tocarlo, pude escuchar un eco lejano. Es extraño... siento que ya he oído ese sonido antes, junto a alguien que solía estar a mi lado."
   }
 ];
@@ -91,7 +96,8 @@ const CORRUPTION_RULES = [
   [/\[LUGAR_RESTRINGIDO\]/g, "corrupt"],
   [/Núm\*\*\* XIV/g, "corrupt"],
   [/Z\*\*o/g, "glitch"],
-  [/\[SEÑAL_CRUZADA\]/g, "red-corrupt"]
+  [/\[SEÑAL_CRUZADA\]/g, "red-corrupt"],
+  [/\[████████\]/g, "red-corrupt"]
 ];
 
 const entryMap = new Map(ENTRIES.map((entry) => [entry.day, entry]));
@@ -469,7 +475,7 @@ function renderCorrupted(text) {
 }
 
 function randomizeGlitch(container) {
-  container.querySelectorAll(".glitch, .red-corrupt").forEach((el) => {
+  container.querySelectorAll(".glitch, .red-corrupt, .corrupt").forEach((el) => {
     el.style.setProperty("--gd", `${(-Math.random() * 3).toFixed(2)}s`);
   });
 }

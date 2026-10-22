@@ -671,11 +671,14 @@ body {
 /* Efectos de corrupción/glitch */
 .corrupt {
   position: relative;
-  display: inline;
+  display: inline-block;
   color: var(--gold-bright);
   text-shadow: var(--glow);
   letter-spacing: 0.12em;
   font-variant-numeric: slashed-zero;
+  animation: glitch-drift 6.2s infinite steps(1, end), glitch-cut 8.1s infinite steps(1, end);
+  animation-delay: var(--gd, 0s), var(--gd, 0s);
+  will-change: transform, clip-path;
 }
 
 .glitch {
@@ -703,7 +706,9 @@ body {
 .glitch::before,
 .glitch::after,
 .red-corrupt::before,
-.red-corrupt::after {
+.red-corrupt::after,
+.corrupt::before,
+.corrupt::after {
   content: attr(data-text);
   position: absolute;
   inset: 0;
@@ -735,6 +740,18 @@ body {
   color: #7c332c;
   animation: glitch-tear-b 6.1s infinite steps(1, end);
   animation-delay: calc(var(--gd, 0s) - 0.55s);
+}
+
+.corrupt::before {
+  color: #e8cf83;
+  animation: glitch-tear-a 4.9s infinite steps(1, end);
+  animation-delay: calc(var(--gd, 0s) - 0.2s);
+}
+
+.corrupt::after {
+  color: #8a6d1e;
+  animation: glitch-tear-b 6.4s infinite steps(1, end);
+  animation-delay: calc(var(--gd, 0s) - 0.45s);
 }
 
 @keyframes glitch-drift {
@@ -1103,14 +1120,17 @@ body {
   }
 
   .glitch,
-  .red-corrupt {
+  .red-corrupt,
+  .corrupt {
     animation: none !important;
   }
 
   .red-corrupt::before,
   .red-corrupt::after,
   .glitch::before,
-  .glitch::after {
+  .glitch::after,
+  .corrupt::before,
+  .corrupt::after {
     content: none;
   }
 
