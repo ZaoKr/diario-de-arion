@@ -40,28 +40,33 @@ const ENTRIES = [
     text: "Al fin he despertado. Me dijeron que estuve durmiendo muchos días. Lea ha vuelto de [REGISTRO ELIMINADO], pero se le ve distinto. Dicen que casi toda la expedición fue [ELIMINADA]. Siento un vacío raro."
   },
   {
+    day: 20,
+    title: "Entrada 9 — Sin Palabras",
+    text: "Lea ha regresado solo de [LUGAR_RESTRINGIDO]. Tiene la mirada perdida y el silencio pesa demasiado entre nosotros. Nos sentamos juntos un momento, pero ninguno se atrevió a decir una sola palabra."
+  },
+  {
     day: 21,
-    title: "Entrada 9 — Sin Poder",
+    title: "Entrada 10 — Sin Poder",
     text: "Encontramos a Aurea en [REGISTRO ELIMINADO]. Parecía perdida y por alguna razón ya no puede invocar [REGISTRO ELIMINADO]. Nos sentamos en [REGISTRO ELIMINADO], pero el ambiente se siente pesado."
   },
   {
     day: 27,
-    title: "Entrada 10 — El Restecimiento",
+    title: "Entrada 11 — El Restecimiento",
     text: "Hoy Aurea logró recuperar [REGISTRO ELIMINADO] durante la misión. Volvemos a encontrarnos al atardecer, pero hay miradas en [REGISTRO ELIMINADO] que no me gustan..."
   },
   {
     day: 42,
-    title: "Entrada 11 — El Encapuchado",
+    title: "Entrada 12 — El Encapuchado",
     text: "Aurea tuvo un enfrentamiento contra un desconocido encapuchado ([████u]). Él la venció, pero se detuvo de golpe cuando le vio la cara bajo la capucha."
   },
   {
     day: 48,
-    title: "Entrada 12 — Silencio",
+    title: "Entrada 13 — Silencio",
     text: "Aurea se desplomó tras luchar contra [REGISTRO ELIMINADO]. Ahora es ella la que no despierta. Ha quedado sumida en un sueño profundo..."
   },
   {
     day: 50,
-    title: "Entrada 13 — El Eco",
+    title: "Entrada 14 — El Eco",
     text: "Aurea ha despertado. Me dio un fragmento cristalino que encontró y, al tocarlo, pude escuchar un eco lejano. Es extraño... siento que ya he oído ese sonido antes, junto a alguien que solía estar a mi lado."
   }
 ];
