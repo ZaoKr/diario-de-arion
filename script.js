@@ -67,7 +67,7 @@ const ENTRIES = [
   {
     day: 50,
     title: "Entrada 14 — El Eco",
-    text: "Aurea ha despertado. Me dio un fragmento cristalino que encontró y, al tocarlo, pude escuchar un eco lejano. Es extraño... siento que ya he oído ese sonido antes, junto a alguien que solía estar a mi lado."
+    text: "Encontré un fragmento cristalino junto a donde duerme Aurea. Al tocarlo, pude escuchar un eco lejano. Es extraño... siento que ya he oído ese sonido antes, junto a alguien que solía estar a mi lado."
   },
   {
     day: 54,
