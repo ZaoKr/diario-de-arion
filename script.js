@@ -68,6 +68,16 @@ const ENTRIES = [
     day: 50,
     title: "Entrada 14 — El Eco",
     text: "Aurea ha despertado. Me dio un fragmento cristalino que encontró y, al tocarlo, pude escuchar un eco lejano. Es extraño... siento que ya he oído ese sonido antes, junto a alguien que solía estar a mi lado."
+  },
+  {
+    day: 54,
+    title: "Entrada 15 — En Otra Parte",
+    text: "Aurea ha despertado del sueño profundo. Actúa diferente, como si estuviera llena de fragmentos e imágenes de Z**o. Ya casi no habla con nadie; siento que camina entre nosotros pero su mente está en otra parte."
+  },
+  {
+    day: 63,
+    title: "Entrada 16 — El Tiempo Detenido",
+    text: "Siento que el tiempo se detiene. En las sombras descubren que Z**o no puede avanzar porque su [REGISTRO ELIMINADO] sigue conectado con 'ella'. Sigo viendo fragmentos de sueños que no me pertenecen."
   }
 ];
 
