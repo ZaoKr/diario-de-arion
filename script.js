@@ -111,8 +111,13 @@ const ENTRIES = [
   },
   {
     day: 100,
-    title: "Entrada 23 — Todo Ha Terminado",
-    text: "Toda ████████████ conoce al fin la verdad sobre ████ y las réplicas. Yo ya no puedo seguir perteneciendo a este lugar. Recogí mis cosas, miré el horizonte una última vez y dejé la Organización. Ya no me quedan respuestas que buscar aquí.<br><br>Lea intentó recuperar a ████, pero ██████ le ha explicado el único camino que queda. ████ me estaba esperando. Peleamos... no por odio, sino porque nuestras existencias no podían coexistir. Cuando cayó ante mí, me miró a los ojos y con su último aliento me pidió liberarlo todo. Todo ha terminado. Nos enfrentamos en la soledad, sabiendo que nuestras existencias no podían coexistir. Luchamos con todo lo que nos quedaba, con las manos temblando y el peso de un vacío que nunca pudimos llenar. Al final, cai frente a él... o fue él quien cayó ante mí. Sostuve sus manos mientras su figura comenzaba a desvanecerse en el aire, volviéndose nada. Ya no quedan respuestas, solo un silencio inmenso. Si voy a olvidarlo todo... espero que alguien, en alguna parte, recuerde que alguna vez estuvimos aquí."
+    title: "Entrada 23 — La Despedida",
+    text: "Toda ████████████ conoce al fin la verdad sobre ████ y las réplicas. Yo ya no puedo seguir perteneciendo a este lugar. Recogí mis cosas, miré el horizonte una última vez y dejé la Organización. Ya no me quedan respuestas que buscar aquí.<br><br>Lea intentó recuperar a ████, pero ██████ le ha explicado el único camino que queda. ████ me estaba esperando. Peleamos... no por odio, sino porque nuestras existencias no podían coexistir. Cuando cayó ante mí, me miró a los ojos y con su último aliento me pidió liberarlo todo."
+  },
+  {
+    day: 101,
+    title: "Entrada 24 — Todo Ha Terminado",
+    text: "Todo ha terminado. Nos enfrentamos en la soledad, sabiendo que nuestras existencias no podían coexistir. Luchamos con todo lo que nos quedaba, con las manos temblando y el peso de un vacío que nunca pudimos llenar. Al final, caí frente a él... o fue él quien cayó ante mí. Sostuve sus manos mientras su figura comenzaba a desvanecerse en el aire, volviéndose nada. Ya no quedan respuestas, solo un silencio inmenso. Si voy a olvidarlo todo... espero que alguien, en alguna parte, recuerde que alguna vez estuvimos aquí."
   }
 ];
 
