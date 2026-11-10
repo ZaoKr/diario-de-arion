@@ -77,7 +77,42 @@ const ENTRIES = [
   {
     day: 63,
     title: "Entrada 16 — El Tiempo Detenido",
-    text: "Siento que el tiempo se detiene. En las sombras descubren que Z**o no puede avanzar porque su [REGISTRO ELIMINADO] sigue conectado con 'ella'. Sigo viendo fragmentos de sueños que no me pertenecen."
+    text: "Siento que el tiempo se ha detenido. En las sombras, ██████ ha detectado que Z no puede avanzar en su restauración porque su █████████ sigue conectado con \"ella\". Sigo viendo fragmentos de sueños que no me pertenecen. ¿Quién soy yo cuando no estoy soñando con Z?"
+  },
+  {
+    day: 64,
+    title: "Entrada 17 — El Ordenador Central",
+    text: "████ logró acceder al ordenador central de ████████████. Descubrió cosas que no debía. Cuando la vi después de eso, sus ojos reflejaban un miedo profundo que nunca antes le había visto."
+  },
+  {
+    day: 72,
+    title: "Entrada 18 — La Huida",
+    text: "████ se ha ido. Descubrió la verdad sobre lo que es y huyó. Mientras tanto, se dice que ██████ le advirtió a ████ que Z jamás despertará mientras existamos yo y \"ella\". Si nuestra existencia le impide despertar a él... ¿entonces para qué nacimos nosotros?"
+  },
+  {
+    day: 78,
+    title: "Entrada 19 — Lejos de Aquí",
+    text: "████ colapsó lejos de aquí, en las ████████████████. ████ la salvó y le contó todo sobre Z y el papel que desempeñamos en esto. Me cuesta concentrarme en las misiones; siento que mi propia fuerza se desvanece a cada segundo."
+  },
+  {
+    day: 84,
+    title: "Entrada 20 — El Impostor",
+    text: "Iniciaron una investigación sobre el \"impostor\". Mi cuerpo no resistió más y caí al suelo, colapsado. Dicen que vieron a ████ junto al impostor y que hay fuertes tensiones en ████████████. █████ le ordenó a Lea que la trajera de vuelta a la fuerza. La restauración de Z se ha detenido por completo a causa de nuestra presencia."
+  },
+  {
+    day: 90,
+    title: "Entrada 21 — El Vacío",
+    text: "████ está absorbiendo todo mi poder, casi sin quererlo. Siento cómo me vacío por dentro día a día. Mi cuerpo apenas responde, y caminar se ha vuelto una tarea casi imposible. Ya no hay conversaciones al atardecer."
+  },
+  {
+    day: 99,
+    title: "Entrada 22 — El Final Se Acerca",
+    text: "█████ intentó llevarnos al límite para que ████ y yo nos destruyéramos el uno al otro. Lea intervino para evitarlo. La restauración de Z ha colapsado por completo. En medio del caos, ████ se enfrentó a ██████ y logró escapar. ███ le ha dicho a ████ que debe actuar ya. Siento que el final se acerca rápidamente y no puedo hacer nada para detenerlo."
+  },
+  {
+    day: 100,
+    title: "Entrada 23 — Todo Ha Terminado",
+    text: "Toda ████████████ conoce al fin la verdad sobre ████ y las réplicas. Yo ya no puedo seguir perteneciendo a este lugar. Recogí mis cosas, miré el horizonte una última vez y dejé la Organización. Ya no me quedan respuestas que buscar aquí.<br><br>Lea intentó recuperar a ████, pero ██████ le ha explicado el único camino que queda. ████ me estaba esperando. Peleamos... no por odio, sino porque nuestras existencias no podían coexistir. Cuando cayó ante mí, me miró a los ojos y con su último aliento me pidió liberarlo todo. Todo ha terminado. Nos enfrentamos en la soledad, sabiendo que nuestras existencias no podían coexistir. Luchamos con todo lo que nos quedaba, con las manos temblando y el peso de un vacío que nunca pudimos llenar. Al final, cai frente a él... o fue él quien cayó ante mí. Sostuve sus manos mientras su figura comenzaba a desvanecerse en el aire, volviéndose nada. Ya no quedan respuestas, solo un silencio inmenso. Si voy a olvidarlo todo... espero que alguien, en alguna parte, recuerde que alguna vez estuvimos aquí."
   }
 ];
 
@@ -482,7 +517,10 @@ function printArchiveMessage() {
 
 function renderCorrupted(text) {
   if (!text) return "";
-  let html = text;
+  let html = text.replace(
+    /(^|[\s.,;:!?¿¡"'“”«»()—–-])(█{2,})(?=$|[\s.,;:!?¿¡"'“”«»()—–-])/g,
+    (_, prefix, blocks) => `${prefix}<span class="red-corrupt" data-text="${blocks}">${blocks}</span>`
+  );
   CORRUPTION_RULES.forEach(([pattern, className]) => {
     html = html.replace(pattern, (match) => `<span class="${className}" data-text="${match}">${match}</span>`);
   });
